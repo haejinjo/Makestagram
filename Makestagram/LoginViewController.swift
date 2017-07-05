@@ -11,25 +11,19 @@ import Foundation
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    // MARK: - Properties
+    @IBOutlet weak var loginButton: UIButton!
+    
+    // MARK: - VC Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Do any additional setup after loading the view
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-        //Dispose of any resousrces that can be recreated
+    // MARK: - IBActions
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        print("login button tapped")
     }
-    
-    /*
-    // MARK: - Navigation
-    
-    //In a storyboard-based application, you will often want to do al ittle preparation before navigation
-    override func prepare((for segue: UIStoryboardSegue, sender: Any?) {
-        //Get the new view controller using segue.destinationViewController.
-        //Pass the selected object to the new view controller.
-    }
-    */
 }

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     //Performed at launch time, can be used for addt'l setup b4 app has launched
-        // Added logic to change our app UIWindow's root VC!
+        // Changed app window's root view controller
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
