@@ -10,6 +10,13 @@ import UIKit
 import Firebase
 
 
+// App Delegate is a singleton object handling important events in life cycle of our app
+    // including:
+    // -executing app's startup code
+    // -handling app lifecycle events like tranasitioning to the background or termination
+    // -receiving push notifications or deep linking
+// A singleton is like a global var in that it enables easy access to shared resource
+// Used widely in iOS but careful to create your own because usually a sign of bad code architecture
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
