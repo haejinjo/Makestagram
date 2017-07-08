@@ -44,7 +44,7 @@ class CreateUsernameViewController: UIViewController {
                 return
             }
             
-            User.setCurrent(user)
+            User.setCurrent(user, writeToUserDefaults: true)
             
             // Check that the storyboard has an initial view controller
             let initialViewController = UIStoryboard.initialViewController(for: .main)

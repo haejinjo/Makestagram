@@ -79,7 +79,17 @@ class User: NSObject {
     // MARK: - Class Methods
     
     // Create a custom setter method to set the current user
-    static func setCurrent(_ user: User) {
+    class func setCurrent(_ user: User, writeToUserDefaults: Bool = false) {
+        
+        if writeToUserDefaults {
+            // User NSKeyedArchiver to turn our User object into Data 
+            //(enabled by our implementing NSCoding protocol and inheriting from NSObject first)
+            let data = NSKeyedArchiver.archivedData(withRootObject: user)
+            
+            // Store/write the data for our current user with correct key in UserDefaults
+            UserDefaults.standard.set(data, forKey: Constants.UserDefaults.currentUser)
+        }
+        
         _current = user
     }
 }

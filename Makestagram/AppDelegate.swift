@@ -32,13 +32,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
     
-        //If login storyboard has initial VC set
-        let initialViewController = UIStoryboard.initialViewController(for: .login)
-            //Set to window's rootViewController property
-            window?.rootViewController = initialViewController
-            
-            //and position the window above any other existing windows
-            window?.makeKeyAndVisible()
+        ConfigureInitialRootViewController(for: window)
+        
+//        //If login storyboard has initial VC set
+//        let initialViewController = UIStoryboard.initialViewController(for: .login)
+//            //Set to window's rootViewController property
+//            window?.rootViewController = initialViewController
+//            
+//            //and position the window above any other existing windows
+//            window?.makeKeyAndVisible()
         return true
     }
 
@@ -65,5 +67,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+// Determine which storyboard's initial view controller should be set as the root view controller of the window!
+    // If the FIRUser singleton already exists and we unarchive data for the currentUser key from UserDefaults,
+        // we'll know the user has been previously authenticated on this device 
+    // Then, we can skip login flow
+extension AppDelegate {
+    func ConfigureInitialRootViewController(for window: UIWindow?) {
+        let defaults = UserDefaults.standard
+        let initialViewController: UIViewController
+        
+        if Auth.auth().currentUser != nil,
+        let userData = defaults.object(forKey: Constants.UserDefaults.currentUser) as? Data,
+        let user = NSKeyedUnarchiver.unarchiveObject(with: userData) as? User {
+            User.setCurrent(user)
+            
+            initialViewController = UIStoryboard.initialViewController(for: .main)
+        }
+        else {
+            
+            initialViewController = UIStoryboard.initialViewController(for: .login)
+        }
+        
+        window?.rootViewController = initialViewController
+        window?.makeKeyAndVisible()
+        
+    }
 }
 
