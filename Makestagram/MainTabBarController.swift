@@ -28,7 +28,7 @@ class MainTabBarController: UITabBarController {
         // This callback (in the form of a closure) receives a UIImage? from MGPhotoHelper
         // "in" keyword marks beginning of actual code of closure
         photoHelper.completionHandler = { image in
-            print("handle image")
+            PostService.create(for: image)
         }
         
         delegate = self
