@@ -10,9 +10,9 @@ import Foundation
 import FirebaseAuth.FIRUser
 import FirebaseDatabase
 
+// User-related networking code
 struct UserService {
-    // insert user-related networking code here
-    
+
     static func create(_ firUser: FIRUser, username: String, completion: @escaping (User?) -> Void) {
        
          // Create dictionary to store username the user has given into our database
@@ -47,5 +47,19 @@ struct UserService {
             }
                 completion(user)
         })
+    }
+    
+    // Fetch and return all a given user's posts from Firebase
+    static func posts(for user: User, completion: @escaping ([Post]) -> Void) {
+        
+        let ref = Database.database().reference().child("posts").child(user.uid)
+        
+        ref.observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else {
+                return completion([])
+            }
+            let posts = snapshot.reversed().flatMap(Post.init)
+            completion(posts)
+            })
     }
 }
