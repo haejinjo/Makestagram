@@ -36,7 +36,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41h-fG-uKi">
-                                                    <rect key="frame" x="23" y="20" width="76" height="13.5"/>
+                                                    <rect key="frame" x="23" y="8" width="76" height="37.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -54,10 +54,10 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="41h-fG-uKi" secondAttribute="bottom" constant="20" symbolic="YES" id="3eP-38-s8Q"/>
                                                 <constraint firstItem="41h-fG-uKi" firstAttribute="leading" secondItem="Fgb-cX-fNm" secondAttribute="leadingMargin" constant="15" id="Hek-pV-Wso"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="41h-fG-uKi" secondAttribute="bottom" id="Hnp-mL-Kd6"/>
                                                 <constraint firstItem="7mU-EK-Yae" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="41h-fG-uKi" secondAttribute="trailing" constant="15" id="Kc9-ml-V1Q"/>
-                                                <constraint firstItem="41h-fG-uKi" firstAttribute="top" secondItem="Fgb-cX-fNm" secondAttribute="top" constant="20" symbolic="YES" id="Pym-Pf-v2K"/>
+                                                <constraint firstItem="41h-fG-uKi" firstAttribute="top" secondItem="Fgb-cX-fNm" secondAttribute="topMargin" id="dnZ-rE-zGr"/>
                                                 <constraint firstAttribute="trailing" secondItem="7mU-EK-Yae" secondAttribute="trailing" constant="20" id="pYS-br-hdn"/>
                                                 <constraint firstItem="7mU-EK-Yae" firstAttribute="centerY" secondItem="Fgb-cX-fNm" secondAttribute="centerY" id="tf1-d1-n0m"/>
                                             </constraints>
@@ -159,7 +159,7 @@
                                 <rect key="frame" x="10" y="10" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1tt-8W-tRZ" id="uyA-Iv-QfD">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
